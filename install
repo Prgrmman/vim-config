@@ -12,7 +12,7 @@ echo ''
 
 
 echo "Installing Prgrmman/vim-config"
-echo "Warning, this will remove and overwrite ~/.vimrc and ~/.vimr. Proceed? [y/n] ?"
+echo "Warning, this will remove and overwrite ~/.vimrc and ~/.vimrc. Proceed? [y/n] ?"
 
 read response
 
