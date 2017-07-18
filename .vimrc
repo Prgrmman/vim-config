@@ -1,9 +1,5 @@
 " Author: Jonathan Terner
 " Date: Mon Jul 10 11:50:57 EDT 2017
-" This is my vimrc file. By default, it will not use any external plugins
-" That being said, I might write my own plugins and other dependencies, but 
-"   not dependencies from the internet. I will provide documentation if this
-"   is the case
 "
 "Table of contents:
 " - Set up basic behavior of vim 
@@ -11,8 +7,6 @@
 " - Language specific settings
 "
 
-"TODO make template commands for C programs
-"TODO make your own snippets
 
 syntax on "turn on syntax highlighting
 set showmode "cues the user if they are in insert mode

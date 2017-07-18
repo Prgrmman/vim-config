@@ -3,6 +3,8 @@
 # This script will overwrite your previous ~/.vimrc and ~/.vim
 # Only proceed if this is desired
 
+# TODO make an offline plugin sync option
+
 echo '____  ____   ___  ____  _  _  _  _   __   __ _    _  _  _  __  _  _        ___  __   __ _  ____  __  ___ '
 echo '(  _ \(  _ \ / __)(  _ \( \/ )( \/ ) / _\ (  ( \  / )/ )( \(  )( \/ ) ___  / __)/  \ (  ( \(  __)(  )/ __)'
 echo ' ) __/ )   /( (_ \ )   // \/ \/ \/ \/    \/    / / / \ \/ / )( / \/ \(___)( (__(  O )/    / ) _)  )(( (_ \'
@@ -43,7 +45,7 @@ cp -r . $VIMDIR
 printf "...done\n"
 
 printf "\nOpening vim to install plugins"
-vim -c "PlugInstall | qa" > /dev/null 2>&1
+vim -c "PlugClean | PlugInstall | qa" > /dev/null 2>&1
 printf "...done\n"
 
 
