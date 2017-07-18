@@ -26,3 +26,4 @@ I use the wonderful vim-plug (https://github.com/junegunn/vim-plug) for my plugi
 This is what my config is using:
 * vim-snipmate (https://github.com/garbas/vim-snipmate)
   In terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
+* tagbar (https://github.com/majutsushi/tagbar)

@@ -62,6 +62,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/tomtom/tlib_vim.git'
 Plug 'https://github.com/garbas/vim-snipmate.git'
+Plug 'https://github.com/majutsushi/tagbar'
 call plug#end()
 
 filetype plugin on
@@ -98,6 +99,8 @@ function SetProgMode()
   set number
   set spell
   set relativenumber
+	"enable tagbar
+	nmap <F8> :TagbarToggle<CR>
   " enable folds at top level
   setlocal foldmethod=syntax
   setlocal foldnestmax=1
