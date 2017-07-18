@@ -49,7 +49,6 @@ set autoread
 
 "---------- Key mappings/abrv/snippets---------- 
 "TODO consider using localleader
-"let mapleader= /
 
 "escape me
 inoremap jk <esc>
@@ -74,8 +73,6 @@ filetype plugin on
 
 "---------- Language specific settings --------------------
 
-" make blank file types default to text
-"autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif  
 
 augroup langauge_settings
   autocmd!
@@ -100,14 +97,13 @@ augroup END
 
 " configure programming mode
 function SetProgMode()
-  setlocal number
-  setlocal spell
-  setlocal relativenumber
-  " enable folds at top level
-  setlocal foldmethod=syntax
-  setlocal foldnestmax=1
-  nnoremap <buffer> <CR> za
-  nnoremap <space> :
+  set number
+  set spell
+  set relativenumber
+  " space is my leader key
+  let mapleader = " "
+  " semicolon now maps to colon
+  nnoremap ; :
 endfunction
 
 " configure text mode
@@ -127,24 +123,15 @@ endfunction
 function SetPerlSettings()
   call SetProgMode()
   set cindent
-  "mappings
 endfunction
 
 function SetShSettings()
   call SetProgMode()
-  "mappings
-  nnoremap <buffer> <leader>c I#<esc>
 endfunction
 
 function SetCSettings()
   call SetProgMode()
   set cindent
-  "folding
-  "mappings
-  nnoremap <buffer> <leader>c I//<esc>
-  "snippets
-  "if statement
-  "inoremap <buffer> iff if(){<CR>}<esc><up>f(a
 endfunction
 
 function SetCppSettings()
