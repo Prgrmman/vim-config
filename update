@@ -1,0 +1,52 @@
+#!/usr/bin/bash
+
+# detect if there are changes
+
+numchanges="$(git status --porcelain | wc -l)"
+
+mode="stash" # default mode
+
+if [[ $numchanges -eq 0 ]]; then
+  echo "No local changes. Proceeding"
+else
+  echo "Local changes"
+  echo "Options:"
+  echo "[s]tash to save your changes and reapply them"
+  echo "[r]eset to remove your changes"
+  read response
+
+  echo $response | egrep "s|S|stash|Stash" > /dev/null
+  if  [ $? -eq 0 ]; then
+    mode="stash"
+  fi
+
+  echo $response | egrep "r|R|reset|Reset" > /dev/null
+  if  [ $? -eq 0 ]; then
+    mode="reset"
+  fi
+
+  if [[ $mode -eq "stash" ]]; then
+    echo "stashing changes"
+    git stash
+    git pull --rebase
+    git stash apply
+  elif [[ $mode -eq "reset" ]]; then
+    git reset --hard HEAD
+    git pull --rebase
+  fi
+  echo "done"
+fi
+
+git pull --rebase
+echo "done"
+
+
+
+#git reset --hard HEAD
+#git pull --rebase
+
+VIMDIR=~/.vim
+VIMRC=~/.vimrc
+
+cp -ruT . $VIMDIR
+
