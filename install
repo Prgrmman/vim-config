@@ -15,10 +15,10 @@ echo "Installing Prgrmman/vim-config"
 echo "Warning, this will remove and overwrite ~/.vimrc and ~/.vimrc. Proceed? [y/n] ?"
 
 read response
-
-echo "$response" | egrep "yes|y|Y|yes" > /dev/null
+ 
+echo "$response" | egrep -i "yes|y" > /dev/null
 if [[ $? -ne 0 ]]; then
-  echo "Cancelling install"
+  printf "Cancelling install"
   exit 0
 fi
 
@@ -26,25 +26,25 @@ VIMDIR=~/.vim
 VIMRC=~/.vimrc
 
 if [ -d "$VIMDIR" ]; then
-  echo "Removing $VIMDIR"
+  printf "\nRemoving $VIMDIR"
   rm -rf $VIMDIR
-  echo "done"
+  printf "...done"\n
 fi
 
 if [ -f "$VIMRC" ]; then
-  echo "Removing $VIMRC"
+  printf "\nRemoving $VIMRC"
   rm -f $VIMRC
-  echo "done"
+  printf "...done\n"
 fi
 
-echo "Copying files"
+printf "\nCopying files"
 cp .vimrc $VIMRC
 cp -r . $VIMDIR
-echo "done"
+printf "...done\n"
 
-echo "Opening vim to install plugins"
-vim -c "PlugInstall | sleep 2000m| qa"
-echo "done"
+printf "\nOpening vim to install plugins"
+vim -c "PlugInstall | qa" > /dev/null 2>&1
+printf "...done\n"
 
 
 

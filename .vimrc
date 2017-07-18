@@ -49,6 +49,9 @@ set autoread
 
 "---------- Key mappings/abrv/snippets---------- 
 "TODO consider using localleader
+let mapleader=" "
+" semicolon now maps to colon
+nnoremap ; :
 
 "escape me
 inoremap jk <esc>
@@ -60,13 +63,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 "----------------------------------------
 
-"---------- Plugins ----------
-
-" For offline use
+"Plugins
 call plug#begin('~/.vim/plugged')
-Plug '~/.vim/plugged/tlib_vim'
-Plug '~/.vim/plugged/vim-addon-mw-utils'
-Plug '~/.vim/plugged/vim-snipmate'
+Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+Plug 'https://github.com/tomtom/tlib_vim.git'
+Plug 'https://github.com/garbas/vim-snipmate.git'
 call plug#end()
 
 filetype plugin on
@@ -95,15 +96,21 @@ augroup END
 
 "==== helper functions for settings
 
+" The following code is used to make vim aware of what type of file
+"   it is working on. I was going to use it for snippet like things
+
 " configure programming mode
 function SetProgMode()
   set number
   set spell
   set relativenumber
+  " enable folds at top level
+  setlocal foldmethod=syntax
+  setlocal foldnestmax=1
+  setlocal foldlevel=20
+  nnoremap <buffer> <leader>f za
+
   " space is my leader key
-  let mapleader = " "
-  " semicolon now maps to colon
-  nnoremap ; :
 endfunction
 
 " configure text mode
@@ -115,18 +122,19 @@ endfunction
 "set global settings for when I'm programming
 function SetPythonSettings()
   call SetProgMode()
-  "mappings
-  "snippets
-  iabbrev <buffer> iff if:<left>
 endfunction
 
 function SetPerlSettings()
   call SetProgMode()
   set cindent
+  "mappings
+  nnoremap <buffer> <leader>c I#<esc>
 endfunction
 
 function SetShSettings()
   call SetProgMode()
+  "mappings
+  nnoremap <buffer> <leader>c I#<esc>
 endfunction
 
 function SetCSettings()
