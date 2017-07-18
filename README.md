@@ -1,12 +1,4 @@
-
-##____  ____   ___  ____  _  _  _  _   __   __ _    _  _  _  __  _  _        ___  __   __ _  ____  __  ___ 
-##(  _ \(  _ \ / __)(  _ \( \/ )( \/ ) / _\ (  ( \  / )/ )( \(  )( \/ ) ___  / __)/  \ (  ( \(  __)(  )/ __)
-## ) __/ )   /( (_ \ )   // \/ \/ \/ \/    \/    / / / \ \/ / )( / \/ \(___)( (__(  O )/    / ) _)  )(( (_ \
-##(__)  (__\_) \___/(__\_)\_)(_/\_)(_/\_/\_/\_)__)(_/   \__/ (__)\_)(_/      \___)\__/ \_)__)(__)  (__)\___/
-
-## Install
-To install, simply run the following
-`git clone https://github.com/Prgrmman/vim-config.git &&  cd vim-config && ./install`
+# vim-config
 
 
 ## Introduction
@@ -25,6 +17,9 @@ vim does not do by default (i.e. snippets). With this in mind, I despise YouComp
 For more plugin-less vim, watch this https://www.youtube.com/watch?v=XA2WjJbmmoM
 
 
+## Install
+To install, simply run the following
+`git clone https://github.com/Prgrmman/vim-config.git &&  cd vim-config && ./install`
 
 ## Features
 I use the wonderful vim-plug (https://github.com/junegunn/vim-plug) for my plugin manager
