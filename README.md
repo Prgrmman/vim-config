@@ -1,4 +1,8 @@
-# This is my vim configuration
+
+##____  ____   ___  ____  _  _  _  _   __   __ _    _  _  _  __  _  _        ___  __   __ _  ____  __  ___ 
+##(  _ \(  _ \ / __)(  _ \( \/ )( \/ ) / _\ (  ( \  / )/ )( \(  )( \/ ) ___  / __)/  \ (  ( \(  __)(  )/ __)
+## ) __/ )   /( (_ \ )   // \/ \/ \/ \/    \/    / / / \ \/ / )( / \/ \(___)( (__(  O )/    / ) _)  )(( (_ \
+##(__)  (__\_) \___/(__\_)\_)(_/\_)(_/\_/\_/\_)__)(_/   \__/ (__)\_)(_/      \___)\__/ \_)__)(__)  (__)\___/
 
 ## Install
 To install, simply run the following
@@ -26,4 +30,4 @@ For more plugin-less vim, watch this https://www.youtube.com/watch?v=XA2WjJbmmoM
 I use the wonderful vim-plug (https://github.com/junegunn/vim-plug) for my plugin manager
 This is what my config is using:
 * vim-snipmate (https://github.com/garbas/vim-snipmate)
-..* in terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
+  In terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
