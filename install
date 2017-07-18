@@ -45,7 +45,7 @@ cp -r . $VIMDIR
 printf "...done\n"
 
 printf "\nOpening vim to install plugins"
-vim -c "PlugInstall | qa" > /dev/null 2>&1
+vim -c "PlugInstall | qa"
 printf "...done\n"
 
 
