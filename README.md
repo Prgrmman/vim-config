@@ -26,4 +26,4 @@ For more plugin-less vim, watch this https://www.youtube.com/watch?v=XA2WjJbmmoM
 I use the wonderful vim-plug (https://github.com/junegunn/vim-plug) for my plugin manager
 This is what my config is using:
 * vim-snipmate (https://github.com/garbas/vim-snipmate)
-,,* in terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
+..* in terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
