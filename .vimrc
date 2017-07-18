@@ -49,7 +49,7 @@ set autoread
 
 "---------- Key mappings/abrv/snippets---------- 
 "TODO consider using localleader
-let mapleader=" "
+"let mapleader= /
 
 "escape me
 inoremap jk <esc>
@@ -61,17 +61,21 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 "----------------------------------------
 
-"Plugins
+"---------- Plugins ----------
+
+" For offline use
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
-Plug 'https://github.com/tomtom/tlib_vim.git'
-Plug 'https://github.com/garbas/vim-snipmate.git'
+Plug '~/.vim/plugged/tlib_vim'
+Plug '~/.vim/plugged/vim-addon-mw-utils'
+Plug '~/.vim/plugged/vim-snipmate'
 call plug#end()
 
 filetype plugin on
 
 "---------- Language specific settings --------------------
 
+" make blank file types default to text
+"autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif  
 
 augroup langauge_settings
   autocmd!
@@ -94,18 +98,16 @@ augroup END
 
 "==== helper functions for settings
 
-" The following code is used to make vim aware of what type of file
-"   it is working on. I was going to use it for snippet like things
-
 " configure programming mode
 function SetProgMode()
-  set number
-  set spell
-  set relativenumber
-  " space is my leader key
-  let mapleader = " "
-  " semicolon now maps to colon
-  nnoremap ; :
+  setlocal number
+  setlocal spell
+  setlocal relativenumber
+  " enable folds at top level
+  setlocal foldmethod=syntax
+  setlocal foldnestmax=1
+  nnoremap <buffer> <CR> za
+  nnoremap <space> :
 endfunction
 
 " configure text mode
@@ -117,22 +119,32 @@ endfunction
 "set global settings for when I'm programming
 function SetPythonSettings()
   call SetProgMode()
+  "mappings
+  "snippets
+  iabbrev <buffer> iff if:<left>
 endfunction
 
 function SetPerlSettings()
   call SetProgMode()
   set cindent
   "mappings
-  nnoremap <buffer> <leader>c I#<esc>
 endfunction
 
 function SetShSettings()
   call SetProgMode()
+  "mappings
+  nnoremap <buffer> <leader>c I#<esc>
 endfunction
 
 function SetCSettings()
   call SetProgMode()
   set cindent
+  "folding
+  "mappings
+  nnoremap <buffer> <leader>c I//<esc>
+  "snippets
+  "if statement
+  "inoremap <buffer> iff if(){<CR>}<esc><up>f(a
 endfunction
 
 function SetCppSettings()
