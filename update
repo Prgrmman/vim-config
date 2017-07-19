@@ -47,8 +47,13 @@ done
 # if pulling from gitgub, stash local changes and then reapply them
 origin=$(git remote -v | grep -i "fetch" | sed 's/(.*)//'| sed 's/origin//')
 if [ $useGit = true ]; then
-  echo "Getting changes from ->$origin"
-  git stash > /dev/null 2>&1 && git pull --rebase && git stash apply > /dev/null 2>&1
+  printf "Getting changes from ->$origin... "
+  git pull --rebase
+  if [ "$?" -eq 0 ]; then
+    printf "done\n"
+  else
+    exit 1
+  fi
 fi
 
 printf "Performing local copy..."
