@@ -50,7 +50,7 @@ if [ $useGit = true ]; then
   printf "Getting changes from ->$origin... "
   git pull --rebase
   if [ "$?" -eq 0 ]; then
-    printf "done\n"
+    printf "\n"
   else
     exit 1
   fi
