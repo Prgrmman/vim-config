@@ -23,7 +23,11 @@ To install, simply run the following
 
 ## Features
 I use the wonderful vim-plug (https://github.com/junegunn/vim-plug) for my plugin manager
-This is what my config is using:
+Plugins:
 * vim-snipmate (https://github.com/garbas/vim-snipmate)
   In terms of snippets, I borrowed most from (https://github.com/honza/vim-snippets), but some are homemade
 * tagbar (https://github.com/majutsushi/tagbar)
+
+Scripts:
+* install: use this to install vim-config as your local vim setup
+* update: use this to sync your local vim config with downstream changes

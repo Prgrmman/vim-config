@@ -2,27 +2,59 @@
 
 # This script is designed to update changes in vim-config to either git or your local vim files
 
+#### variables
+# don't use git sync by default
+useGit=false
+VIMDIR=~/.vim
+VIMRC=~/.vimrc
 
 # Helper functions
 
 function usage {
   echo "Usage: ./update [--git]"
   echo "Desc: updates local vim-config with local changes"
-  echo "  use --git to propagate changes to github"
-  echo "  Note: this will only work if you have access to the github"
-  exit 1
+  echo "  use --git to pull changes from github"
+  echo "  Note: this will only work if you have access to the github";
 }
+
 
 
 ### Main code body
 
-if [[ $# -eq 0 ]]; then
-  # no arguments print usage message
-  usage
-fi
 
 
 # Process args
 for i in "$@"
 do
-  if [[ $i -eq "--git" ]]; then
+  case $i in 
+    -h | --help)
+      usage
+      exit 0
+      shift
+      ;;
+    --git)
+      useGit=true
+      shift
+      ;;
+    *)
+      echo "Error: unknown option <$1>"
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+# if pulling from gitgub, stash local changes and then reapply them
+origin=$(git remote -v | grep -i "fetch" | sed 's/(.*)//'| sed 's/origin//')
+if [ $useGit = true ]; then
+  echo "Getting changes from ->$origin"
+  git stash > /dev/null 2>&1 && git pull --rebase && git stash apply > /dev/null 2>&1
+fi
+
+printf "Performing local copy..."
+rsync -a .vimrc $VIMRC && rsync -a vim $VIMDIR
+if [ "$?" -eq 0 ]; then
+  printf "done\n"
+fi
+
+

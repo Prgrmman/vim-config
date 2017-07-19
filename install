@@ -41,7 +41,7 @@ fi
 
 printf "\nCopying files"
 cp .vimrc $VIMRC
-cp -r . $VIMDIR
+cp -r vim $VIMDIR
 printf "...done\n"
 
 printf "\nOpening vim to install plugins"
