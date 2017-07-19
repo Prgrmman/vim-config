@@ -52,7 +52,7 @@ if [ $useGit = true ]; then
 fi
 
 printf "Performing local copy..."
-rsync -a .vimrc $VIMRC && rsync -a vim $VIMDIR
+rsync -a .vimrc $VIMRC && rsync -a vim/ $VIMDIR/
 if [ "$?" -eq 0 ]; then
   printf "done\n"
 fi
