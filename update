@@ -61,5 +61,8 @@ rsync -a .vimrc $VIMRC && rsync -a vim/ $VIMDIR/
 if [ "$?" -eq 0 ]; then
   printf "done\n"
 fi
+printf "Updating vim-plug..."
+vim -c "PlugInstall | qa" > /dev/null 2>&1
+printf "done\n"
 
 
