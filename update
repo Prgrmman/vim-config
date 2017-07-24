@@ -5,16 +5,19 @@
 #### variables
 # don't use git sync by default
 useGit=false
+reset=false
 VIMDIR=~/.vim
 VIMRC=~/.vimrc
 
 # Helper functions
 
 function usage {
-  echo "Usage: ./update [--git]"
+  echo "Usage: ./update [--reset | --git]"
   echo "Desc: updates local vim-config with local changes"
   echo "  use --git to pull changes from github"
-  echo "  Note: this will only work if you have access to the github";
+  echo "    note: this will only work if you have access to the github";
+  echo "  use --reset to reset local changes"
+  echo "    note: this does not erase untracked files"
 }
 
 
@@ -32,6 +35,10 @@ do
       exit 0
       shift
       ;;
+    --reset)
+      reset=true
+      shift
+      ;;
     --git)
       useGit=true
       shift
@@ -43,6 +50,12 @@ do
   esac
   shift
 done
+
+# Reset local changes
+if [ $reset = true ]; then
+  git reset --hard HEAD
+  echo "Changes reset"
+fi
 
 # if pulling from gitgub, stash local changes and then reapply them
 origin=$(git remote -v | grep -i "fetch" | sed 's/(.*)//'| sed 's/origin//')
