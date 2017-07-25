@@ -3,7 +3,44 @@
 # This script will overwrite your previous ~/.vimrc and ~/.vim
 # Only proceed if this is desired
 
-# TODO make an offline plugin sync option
+
+#### variables
+VIMDIR=~/.vim
+VIMRC=~/.vimrc
+WORKINGDIR=`pwd`
+useOffline=false
+
+
+# Helper functions
+
+
+function usage {
+  echo "Usage: ./install [--offline]"
+  echo "Desc: installs vim-config"
+  echo "use --offline if you don't have access to the github repo"
+}
+# Process args
+for i in "$@"
+do
+  case $i in
+    -h | --help)
+      usage
+      exit 0
+      shift
+      ;;
+    --offline)
+      useOffline=true
+      shift
+      ;;
+    *)
+      echo "Error: unknown option <$1>"
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+### Main code body
 
 echo '____  ____   ___  ____  _  _  _  _   __   __ _    _  _  _  __  _  _        ___  __   __ _  ____  __  ___ '
 echo '(  _ \(  _ \ / __)(  _ \( \/ )( \/ ) / _\ (  ( \  / )/ )( \(  )( \/ ) ___  / __)/  \ (  ( \(  __)(  )/ __)'
@@ -12,25 +49,23 @@ echo '(__)  (__\_) \___/(__\_)\_)(_/\_)(_/\_/\_/\_)__)(_/   \__/ (__)\_)(_/     
 echo ''
 echo ''
 
-
 echo "Installing Prgrmman/vim-config"
 echo "Warning, this will remove and overwrite ~/.vimrc and ~/.vimrc. Proceed? [y/n] ?"
 
 read response
- 
+
 echo "$response" | egrep -i "yes|y" > /dev/null
 if [[ $? -ne 0 ]]; then
   printf "Cancelling install"
   exit 0
 fi
 
-VIMDIR=~/.vim
-VIMRC=~/.vimrc
+
 
 if [ -d "$VIMDIR" ]; then
   printf "\nRemoving $VIMDIR"
   rm -rf $VIMDIR
-  printf "...done"\n
+  printf "...done\n"
 fi
 
 if [ -f "$VIMRC" ]; then
@@ -44,16 +79,16 @@ cp .vimrc $VIMRC
 cp -r vim $VIMDIR
 printf "...done\n"
 
+# TODO make an offline plugin sync option
+if [ $useOffline = true ]; then
+  cp offline/plugged.zip $VIMDIR
+  cd $VIMDIR
+  unzip plugged.zip
+  rm plugged.zip
+  cd $WORKINGDIR
+  ls
+fi
+
 printf "\nOpening vim to install plugins"
 vim -c "PlugInstall | qa"
 printf "...done\n"
-
-
-
-
-
-
-
-
-
-

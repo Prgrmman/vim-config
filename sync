@@ -29,7 +29,7 @@ function usage {
 # Process args
 for i in "$@"
 do
-  case $i in 
+  case $i in
     -h | --help)
       usage
       exit 0

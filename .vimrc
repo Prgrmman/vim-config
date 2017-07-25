@@ -1,6 +1,12 @@
 " Author: Jonathan Terner
 " Date: Mon Jul 10 11:50:57 EDT 2017
 "
+" Changelog:
+" Jonathan Terner
+" 25 July 2017
+" * changed textmode spacing line wrap
+" * mapped ; to :
+"
 "Table of contents:
 " - Set up basic behavior of vim 
 " - Key mappings/abrv/snippets
@@ -113,7 +119,7 @@ endfunction
 " configure text mode
 function SetTextMode()
   set spell
-  set textwidth=80
+  set textwidth=90
 endfunction
 
 "set global settings for when I'm programming
