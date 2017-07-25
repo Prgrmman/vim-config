@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# This script is designed to update changes in vim-config to either git or your local vim files
+# This script is designed to sync changes in vim-config to either git or your local vim files
 
 #### variables
 # don't use git sync by default
@@ -12,8 +12,8 @@ VIMRC=~/.vimrc
 # Helper functions
 
 function usage {
-  echo "Usage: ./update [--reset | --git]"
-  echo "Desc: updates local vim-config with local changes"
+  echo "Usage: ./sync [--reset | --git]"
+  echo "Desc: sync local vim-config with local changes or with git repo"
   echo "  use --git to pull changes from github"
   echo "    note: this will only work if you have access to the github";
   echo "  use --reset to reset local changes"
