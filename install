@@ -33,7 +33,7 @@ do
       shift
       ;;
     *)
-      echo "Error: unknown option <$1>"
+      echo "$0 Error: unknown option <$1>"
       exit 1
       ;;
   esac
