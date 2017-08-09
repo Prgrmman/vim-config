@@ -2,6 +2,9 @@
 
 # This script is designed to sync changes in vim-config to either git or your local vim files
 
+# change to directory where vim config lives
+cd "$(dirname "$0")"
+
 #### variables
 # don't use git sync by default
 useGit=false

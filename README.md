@@ -19,7 +19,7 @@ For more plugin-less vim, watch this https://www.youtube.com/watch?v=XA2WjJbmmoM
 
 ## Install
 To install, simply run the following
-`git clone https://github.com/Prgrmman/vim-config.git &&  cd vim-config && ./install`
+`git clone https://github.com/Prgrmman/vim-config.git &&  vim-config/install`
 There is now an offline option. To install vim-config without an internet connection,
 give `--offline` as an argument to the install script
 

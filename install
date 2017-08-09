@@ -3,6 +3,8 @@
 # This script will overwrite your previous ~/.vimrc and ~/.vim
 # Only proceed if this is desired
 
+# change to directory where vim config lives
+cd "$(dirname "$0")"
 
 #### variables
 VIMDIR=~/.vim
