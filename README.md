@@ -32,4 +32,4 @@ Plugins:
 
 Scripts:
 * install: use this to install vim-config as your local vim setup
-* sync: use this to sync your local vim config with downstream changes
+* sync: use this to sync your local vim config with remote changes
