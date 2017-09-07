@@ -73,6 +73,9 @@ call plug#end()
 
 filetype plugin on
 
+"enable tagbar
+nmap <F8> :TagbarToggle<CR>
+
 "---------- Language specific settings --------------------
 
 
@@ -105,8 +108,6 @@ function SetProgMode()
   set number
   set spell
   set relativenumber
-	"enable tagbar
-	nmap <F8> :TagbarToggle<CR>
   " enable folds at top level
   setlocal foldmethod=syntax
   setlocal foldnestmax=1
