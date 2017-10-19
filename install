@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This script will overwrite your previous ~/.vimrc and ~/.vim
 # Only proceed if this is desired

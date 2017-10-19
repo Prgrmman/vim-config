@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This script is designed to sync changes in vim-config to either git or your local vim files
 
