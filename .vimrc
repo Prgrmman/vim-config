@@ -69,15 +69,23 @@ Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/tomtom/tlib_vim.git'
 Plug 'https://github.com/garbas/vim-snipmate.git'
 Plug 'https://github.com/majutsushi/tagbar'
+Plug 'https://github.com/vim-airline/vim-airline'
 call plug#end()
 
 filetype plugin on
 
 "enable tagbar
 nmap <F8> :TagbarToggle<CR>
+"vim airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "---------- Language specific settings --------------------
 
+augroup general_settings
+  autocmd!
+  autocmd BufReadPost * '"
+augroup END
 
 augroup langauge_settings
   autocmd!
