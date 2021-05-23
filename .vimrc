@@ -70,6 +70,7 @@ Plug 'https://github.com/tomtom/tlib_vim.git'
 Plug 'https://github.com/garbas/vim-snipmate.git'
 Plug 'https://github.com/majutsushi/tagbar'
 Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 filetype plugin on
