@@ -81,6 +81,11 @@ nmap <F8> :TagbarToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+
+"SnipMate parser has some deprecation stuff to deal with...
+let g:snipMate = { 'snippet_version' : 1 }
+
+
 "---------- Language specific settings --------------------
 
 augroup general_settings
