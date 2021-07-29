@@ -27,7 +27,7 @@ set background=dark
 set cursorline
 
 "set up indentation for coding style
-set tabstop=2
+set tabstop=8
 set shiftwidth=2
 set expandtab
 set autoindent
